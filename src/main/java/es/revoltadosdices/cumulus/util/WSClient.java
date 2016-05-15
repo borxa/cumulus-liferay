@@ -44,7 +44,7 @@ public class WSClient {
                 }
                 CACHE.put(key, json, cacheTime);
             } catch (IOException | JSONException ex) {
-                LOG.warn(ex.getMessage());
+                LOG.warn(ex);
                 json = JSONFactoryUtil.createJSONObject();
             }
         }
