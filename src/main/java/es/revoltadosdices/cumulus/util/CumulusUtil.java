@@ -35,7 +35,7 @@ public class CumulusUtil {
                 }
                 map.put(key, value);
             }
-        } catch (JSONException ex) {
+        } catch (JSONException | NullPointerException ex) {
             LOG.error(ex);
         }
 
