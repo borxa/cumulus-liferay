@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+    <category name="cumulus">
+        <portlet id="cumulus-now" />
+        <portlet id="cumulus-charts" />
+        <portlet id="cumulus-gauges" />
+        <portlet id="cumulus-forecast" />
+        <portlet id="cumulus-moonphase" />
+        <portlet id="cumulus-observations" />
+        <portlet id="cumulus-today" />
+        <portlet id="cumulus-yesterday" />
+    </category>
+</display>
