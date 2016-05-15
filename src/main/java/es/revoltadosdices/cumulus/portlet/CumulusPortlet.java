@@ -12,6 +12,7 @@ import es.revoltadosdices.cumulus.service.CumulusService;
 import es.revoltadosdices.cumulus.util.WSClient;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -26,7 +27,7 @@ public class CumulusPortlet extends MVCPortlet {
 
     public static final String DEFAULT_JSON = "http://meteo.a-revolta.es/data.json";
     public static final String DEFAULT_WEBTAG = "system";
-    
+
     /**
      *
      * @param renderRequest
@@ -42,24 +43,15 @@ public class CumulusPortlet extends MVCPortlet {
         String jsonUrl = renderRequest.getPreferences().getValue("dataUrl", DEFAULT_JSON);
         String webTag = renderRequest.getPreferences().getValue("currentWebTags", DEFAULT_WEBTAG);
         int cacheTime = GetterUtil.getInteger(renderRequest.getPreferences().getValue("cacheTime", "0"));
-        
+
         CumulusService service = new CumulusService(renderRequest.getWindowID(), cacheTime);
         Map<String, String> map = service.jsonToMap(jsonUrl, webTag);
 
         if (map.isEmpty()) {
             SessionErrors.add(renderRequest, "JSONDataNotFound");
         } else {
-            for (String str : map.keySet()) {
-                String value = map.get(str).replace(",", ".");
-                if (Validator.isNumber(value.replace(".", "0"))) {
-                    if (value.contains(".")) {
-                        renderRequest.setAttribute(str, Double.parseDouble(value));
-                    } else {
-                        renderRequest.setAttribute(str, Integer.parseInt(value));
-                    }
-                } else {
-                    renderRequest.setAttribute(str, value);
-                }
+            for (Entry<String, String> entry : map.entrySet()) {
+                setParam(renderRequest, entry);
             }
         }
 
@@ -69,17 +61,34 @@ public class CumulusPortlet extends MVCPortlet {
     @Override
     public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
             throws IOException, PortletException {
-        
+
         String url = resourceRequest.getPreferences().getValue("dataUrl", DEFAULT_JSON);
         int cacheTime = GetterUtil.getInteger(resourceRequest.getPreferences().getValue("cacheTime", "0"));
-        
+
         WSClient client = new WSClient("ajax", cacheTime);
         JSONObject json = client.getJSON(url, null);
-        
+
         resourceResponse.setContentType(ContentTypes.APPLICATION_JSON);
-            resourceResponse.addProperty(
-                    HttpHeaders.CACHE_CONTROL, HttpHeaders.CACHE_CONTROL_PUBLIC_VALUE);
-        
+        resourceResponse.addProperty(
+                HttpHeaders.CACHE_CONTROL, HttpHeaders.CACHE_CONTROL_PUBLIC_VALUE);
+
         PortletResponseUtil.write(resourceResponse, json.toString());
+    }
+
+    private void setParam(RenderRequest renderRequest, Entry<String, String> entry) {
+
+        String key = entry.getKey();
+        String value = entry.getValue().replace(",", ".");
+        
+        if (Validator.isNumber(value.replace(".", "0"))) {
+            if (value.contains(".")) {
+                renderRequest.setAttribute(key, Double.parseDouble(value));
+            } else {
+                renderRequest.setAttribute(key, Integer.parseInt(value));
+            }
+        } else {
+            renderRequest.setAttribute(key, value);
+        }
+
     }
 }
