@@ -17,6 +17,8 @@ import java.util.Map;
 public class CumulusUtil {
     
     private static final Log LOG = LogFactoryUtil.getLog(CumulusUtil.class);
+    
+    private CumulusUtil() {}
 
     public static Map<String, String> jsonToMap(String json) {
 
