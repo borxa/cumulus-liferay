@@ -30,7 +30,7 @@ public class WSClient {
         this.cacheTime = cacheTime;
     }
 
-    final public JSONObject getJSON(String jsonURL, String webTag) {
+    public final JSONObject getJSON(String jsonURL, String webTag) {
 
         String key = new StringBuilder(cacheKey).append(jsonURL).append(webTag).toString();
         JSONObject json = CACHE.get(key);
