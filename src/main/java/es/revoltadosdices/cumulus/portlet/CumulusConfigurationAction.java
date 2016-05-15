@@ -2,6 +2,8 @@ package es.revoltadosdices.cumulus.portlet;
 
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import es.revoltadosdices.cumulus.service.CumulusService;
+import es.revoltadosdices.cumulus.service.CumulusServiceFactory;
+import es.revoltadosdices.cumulus.util.CumulusUtil;
 import java.util.Map;
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletPreferences;
@@ -35,8 +37,9 @@ public class CumulusConfigurationAction extends DefaultConfigurationAction {
         renderRequest.setAttribute("cacheTime",
                 preferences.getValue("cacheTime", "0"));
         
-        CumulusService service = new CumulusService("portletConfig", 0);
-        Map map = service.jsonToMap(dataUrl, null);
+        CumulusService service = CumulusServiceFactory.getService("portletConfig", 0);
+        String json = service.getJSON(dataUrl, null);
+        Map<String, String> map = CumulusUtil.jsonToMap(json);
         renderRequest.setAttribute("listWebTags", map.keySet());
         
         renderRequest.setAttribute("currentWebTags",

@@ -1,6 +1,5 @@
 package es.revoltadosdices.cumulus.portlet;
 
-import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.SessionErrors;
@@ -9,7 +8,8 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import es.revoltadosdices.cumulus.service.CumulusService;
-import es.revoltadosdices.cumulus.util.WSClient;
+import es.revoltadosdices.cumulus.service.CumulusServiceFactory;
+import es.revoltadosdices.cumulus.util.CumulusUtil;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -43,9 +43,9 @@ public class CumulusPortlet extends MVCPortlet {
         String jsonUrl = renderRequest.getPreferences().getValue("dataUrl", DEFAULT_JSON);
         String webTag = renderRequest.getPreferences().getValue("currentWebTags", DEFAULT_WEBTAG);
         int cacheTime = GetterUtil.getInteger(renderRequest.getPreferences().getValue("cacheTime", "0"));
-
-        CumulusService service = new CumulusService(renderRequest.getWindowID(), cacheTime);
-        Map<String, String> map = service.jsonToMap(jsonUrl, webTag);
+        
+        CumulusService service = CumulusServiceFactory.getService(renderRequest.getWindowID(), cacheTime);
+        Map<String, String> map = CumulusUtil.jsonToMap(service.getJSON(jsonUrl, webTag));
 
         if (map.isEmpty()) {
             SessionErrors.add(renderRequest, "JSONDataNotFound");
@@ -65,14 +65,14 @@ public class CumulusPortlet extends MVCPortlet {
         String url = resourceRequest.getPreferences().getValue("dataUrl", DEFAULT_JSON);
         int cacheTime = GetterUtil.getInteger(resourceRequest.getPreferences().getValue("cacheTime", "0"));
 
-        WSClient client = new WSClient("ajax", cacheTime);
-        JSONObject json = client.getJSON(url, null);
+        CumulusService service = CumulusServiceFactory.getService("ajax", cacheTime);
+        String json = service.getJSON(url, null);
 
         resourceResponse.setContentType(ContentTypes.APPLICATION_JSON);
         resourceResponse.addProperty(
                 HttpHeaders.CACHE_CONTROL, HttpHeaders.CACHE_CONTROL_PUBLIC_VALUE);
 
-        PortletResponseUtil.write(resourceResponse, json.toString());
+        PortletResponseUtil.write(resourceResponse, json);
     }
 
     private void setParam(RenderRequest renderRequest, Entry<String, String> entry) {
