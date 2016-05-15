@@ -3,6 +3,7 @@ Set of portlets for integrate cumulus wheather software in Liferay Portal
 http://borxa.github.io/cumulus-liferay/
 
 For build this software you needs a profile in your maven settings.xml like this:
+```
 <profile>
     <id>liferay</id>
     <activation>
@@ -34,3 +35,4 @@ For build this software you needs a profile in your maven settings.xml like this
         </liferay.maven.plugin.version>
     </properties>
 </profile>
+```
