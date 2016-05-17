@@ -32,10 +32,9 @@ public class CumulusUtil {
                 Iterator<String> iterator = jsonObject.keys();
                 while (iterator.hasNext()) {
                     String key = iterator.next();
-                    String value = jsonObject.getString(key);
-                    if (value.contains("{")) {
-                        value = StringPool.BLANK;
-                    }
+                    String value = jsonObject
+                            .getString(key)
+                            .replaceFirst(StringPool.OPEN_CURLY_BRACE, StringPool.BLANK);
                     map.put(key, value);
                 }
             } catch (JSONException ex) {
