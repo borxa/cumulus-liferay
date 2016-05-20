@@ -11,7 +11,7 @@
             <plugin>
                 <groupId>com.liferay.maven.plugins</groupId>
                 <artifactId>liferay-maven-plugin</artifactId>
-                <version>${liferay.maven.plugin.version}</version>
+                <version>7.0.0-m2</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
