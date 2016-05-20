@@ -1,12 +1,12 @@
 package es.revoltadosdices.cumulus.portlet;
 
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.util.bridges.mvc.MVCPortlet;
 import es.revoltadosdices.cumulus.service.CumulusService;
 import es.revoltadosdices.cumulus.service.CumulusServiceFactory;
 import es.revoltadosdices.cumulus.util.CumulusUtil;

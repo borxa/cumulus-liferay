@@ -11,7 +11,15 @@
             <plugin>
                 <groupId>com.liferay.maven.plugins</groupId>
                 <artifactId>liferay-maven-plugin</artifactId>
-                <version>6.2.5</version>
+                <version>${liferay.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>build-css</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
                     <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
@@ -37,25 +45,25 @@
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>portal-service</artifactId>
-            <version>6.2.5</version>
+            <version>7.0.0-nightly</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-bridges</artifactId>
-            <version>6.2.5</version>
+            <version>7.0.0-nightly</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-taglib</artifactId>
-            <version>6.2.5</version>
+            <version>7.0.0-nightly</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-java</artifactId>
-            <version>6.2.5</version>
+            <version>7.0.0-nightly</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -86,6 +94,7 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>1.10.19</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
