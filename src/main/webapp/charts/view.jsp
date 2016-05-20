@@ -6,7 +6,7 @@
 
     <c:set var="dataUrl" 
            value="http://meteo.a-revolta.es/images/"/>
-    <div id="chart-thumbs" class="row-fluid">
+    <div class="chart-thumbs" class="row-fluid">
         <div class="span2 offset1">
             <img src="${dataUrl}winddsm.png" alt="wind direction" />
             <img src="${dataUrl}rainsm.png" alt="rain" />
