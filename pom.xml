@@ -25,7 +25,7 @@
                     <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
                     <appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
                     <appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
-                    <liferayVersion>${liferay.version}</liferayVersion>
+                    <liferayVersion>6.2.5</liferayVersion>
                     <pluginType>portlet</pluginType>
                 </configuration>
             </plugin>
