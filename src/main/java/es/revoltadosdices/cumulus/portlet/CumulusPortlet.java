@@ -39,7 +39,7 @@ public class CumulusPortlet extends MVCPortlet {
     public void doView(RenderRequest renderRequest,
             RenderResponse renderResponse)
             throws IOException, PortletException {
-
+        
         String jsonUrl = renderRequest.getPreferences().getValue("dataUrl", DEFAULT_JSON);
         String webTag = renderRequest.getPreferences().getValue("currentWebTags", DEFAULT_WEBTAG);
         int cacheTime = GetterUtil.getInteger(renderRequest.getPreferences().getValue("cacheTime", "0"));
@@ -50,9 +50,9 @@ public class CumulusPortlet extends MVCPortlet {
         if (map.isEmpty()) {
             SessionErrors.add(renderRequest, "JSONDataNotFound");
         } else {
-            for (Entry<String, String> entry : map.entrySet()) {
+            map.entrySet().stream().forEach((entry) -> {
                 setParam(renderRequest, entry);
-            }
+            });
         }
 
         super.doView(renderRequest, renderResponse);

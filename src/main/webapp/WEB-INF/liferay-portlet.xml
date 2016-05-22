@@ -5,56 +5,56 @@
     <portlet>
         <portlet-name>cumulus-charts</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/charts/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-forecast</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-gauges</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/gauges/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-moonphase</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-now</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-observations</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-today</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>
     <portlet>
         <portlet-name>cumulus-yesterday</portlet-name>
         <icon>/icon.png</icon>
-        <configuration-action-class>es.revoltadosdices.cumulus.portlet.CumulusConfigurationAction</configuration-action-class>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
         <header-portlet-css>/css/main.css</header-portlet-css>
         <footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
     </portlet>

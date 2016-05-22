@@ -38,7 +38,7 @@ public class JSONClient implements CumulusService {
 
         String key = new StringBuilder(cacheKey).append(jsonURL).append(webTag).toString();
         PortalCache<String, String> cache
-                = SingleVMPoolUtil.getCache(JSONClient.class.getName());
+                = SingleVMPoolUtil.getPortalCache(JSONClient.class.getName());
 
         String json = cache.get(key);
         
