@@ -50,9 +50,9 @@ public class CumulusPortlet extends MVCPortlet {
         if (map.isEmpty()) {
             SessionErrors.add(renderRequest, "JSONDataNotFound");
         } else {
-            map.entrySet().stream().forEach((entry) -> {
+            for(Entry entry : map.entrySet()) {
                 setParam(renderRequest, entry);
-            });
+            }
         }
 
         super.doView(renderRequest, renderResponse);
