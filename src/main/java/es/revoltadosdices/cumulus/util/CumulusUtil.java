@@ -33,8 +33,8 @@ public class CumulusUtil {
                 while (iterator.hasNext()) {
                     String key = iterator.next();
                     String value = jsonObject
-                            .getString(key)
-                            .replaceFirst(StringPool.OPEN_CURLY_BRACE, StringPool.BLANK);
+                            .getString(key);
+                            /*.replaceFirst(StringPool.OPEN_CURLY_BRACE, StringPool.BLANK);*/
                     map.put(key, value);
                 }
             } catch (JSONException ex) {
