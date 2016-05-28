@@ -16,9 +16,7 @@ AUI().ready(
                                 });
                     });
 
-            A.all('#charts #chart-img img').on('click',
-                    function () {
-                        var imageViewer = new A.ImageViewer(
+            var imageViewer = new A.ImageViewer(
                                 {
                                     links: '#charts #chart-img div a',
                                     infoTemplate: 'Chart {current} of {total}',
@@ -29,8 +27,9 @@ AUI().ready(
                                     playing: false
                                 }
                         );
-                        imageViewer.render();
-                        //imageViewer.on('click',function(){console.log('click');});
+            A.all('#charts #chart-img img').on('click',
+                    function () {
+                        imageViewer.render();                    
                     });
         }
 );
