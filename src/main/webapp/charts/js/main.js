@@ -1,12 +1,12 @@
 AUI().ready(
-        'node',
+        'aui-node',
         'transition',
         'aui-image-viewer',
         function (A) {
             // Charts Portlet
             var imgActive = A.one('#charts #chart-img img[alt="temp"]');
             imgActive.show('fadeIn');
-            A.all('#charts #chart-thumbs img').on('click',
+            A.all('#charts .chart-thumbs img').on('click',
                     function (event) {
                         var alt = event.currentTarget.get('alt');
                         imgActive.hide('fadeOut',
@@ -18,15 +18,19 @@ AUI().ready(
 
             A.all('#charts #chart-img img').on('click',
                     function () {
-                        new A.ImageViewer(
+                        var imageViewer = new A.ImageViewer(
                                 {
                                     links: '#charts #chart-img div a',
                                     infoTemplate: 'Chart {current} of {total}',
                                     headerContent: '<h3 class="text-center">Weather Charts</h3>',
                                     circular: true,
-                                    zIndex: 1
+                                    zIndex: 1,
+                                    height: '90%',
+                                    playing: false
                                 }
-                        ).render();
+                        );
+                        imageViewer.render();
+                        //imageViewer.on('click',function(){console.log('click');});
                     });
         }
 );

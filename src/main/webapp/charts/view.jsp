@@ -4,29 +4,21 @@
 
 <div id="charts" class="container-fluid">
 
-    <c:set var="dataUrl" 
-           value="http://meteo.a-revolta.es/images/"/>
-    <div class="chart-thumbs" class="row-fluid">
-        <div class="span2 offset1">
-            <img src="${dataUrl}winddsm.png" alt="wind direction" />
-            <img src="${dataUrl}rainsm.png" alt="rain" />
-        </div>
-        <div class="span2">
-            <img src="${dataUrl}windsm.png" alt="wind" />
-            <img src="${dataUrl}raintsm.png" alt="rain trend" />
-        </div>
-        <div class="span2">
-            <img src="${dataUrl}tempsm.png" alt="temp" />
-            <img src="${dataUrl}raindsm.png" alt="rain daily" />
-        </div>
-        <div class="span2">
-            <img src="${dataUrl}intempsm.png" alt="int temp" />
-            <img src="${dataUrl}tempmsm.png" alt="temp month" />
-        </div>
-        <div class="span2">
-            <img src="${dataUrl}presssm.png" alt="press" />
-            <img src="${dataUrl}humsm.png" alt="humidity" />
-        </div>
+    <c:set var="dataUrl" value="http://meteo.a-revolta.es/images/"/>
+    
+    <div class="chart-thumbs row">
+        <div class="col-md-2 col-md-offset-1"><img src="${dataUrl}winddsm.png" alt="wind direction" /></div>
+        <div class="col-md-2"><img src="${dataUrl}windsm.png" alt="wind" /></div>
+        <div class="col-md-2"><img src="${dataUrl}tempsm.png" alt="temp" /></div>
+        <div class="col-md-2"><img src="${dataUrl}intempsm.png" alt="int temp" /></div>
+        <div class="col-md-2"><img src="${dataUrl}presssm.png" alt="press" /></div>
+    </div>
+    <div class="chart-thumbs row">
+        <div class="col-md-2 col-md-offset-1"><img src="${dataUrl}rainsm.png" alt="rain" /></div>
+        <div class="col-md-2"><img src="${dataUrl}raintsm.png" alt="rain trend" /></div>
+        <div class="col-md-2"><img src="${dataUrl}raindsm.png" alt="rain daily" /></div>
+        <div class="col-md-2"><img src="${dataUrl}tempmsm.png" alt="temp month" /></div>
+        <div class="col-md-2"><img src="${dataUrl}humsm.png" alt="humidity" /></div>
     </div>
     <div id="chart-img" class="row-fluid">
         <div class="well text-center">
