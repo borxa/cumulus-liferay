@@ -17,19 +17,19 @@ AUI().ready(
                     });
 
             var imageViewer = new A.ImageViewer(
-                                {
-                                    links: '#charts #chart-img div a',
-                                    infoTemplate: 'Chart {current} of {total}',
-                                    headerContent: '<h3 class="text-center">Weather Charts</h3>',
-                                    circular: true,
-                                    zIndex: 1,
-                                    height: '90%',
-                                    playing: false
-                                }
-                        );
+                    {
+                        links: '#charts #chart-img div a',
+                        infoTemplate: 'Chart {current} of {total}',
+                        headerContent: '<h3 class="text-center">Weather Charts</h3>',
+                        circular: true,
+                        zIndex: 1,
+                        height: '90%',
+                        playing: false
+                    }
+            );
             A.all('#charts #chart-img img').on('click',
                     function () {
-                        imageViewer.render();                    
+                        imageViewer.render();
                     });
         }
 );
