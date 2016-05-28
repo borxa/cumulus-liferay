@@ -5,7 +5,6 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,9 +31,7 @@ public class CumulusUtil {
                 Iterator<String> iterator = jsonObject.keys();
                 while (iterator.hasNext()) {
                     String key = iterator.next();
-                    String value = jsonObject
-                            .getString(key);
-                            /*.replaceFirst(StringPool.OPEN_CURLY_BRACE, StringPool.BLANK);*/
+                    String value = jsonObject.getString(key);
                     map.put(key, value);
                 }
             } catch (JSONException ex) {
