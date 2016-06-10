@@ -18,4 +18,8 @@
 
 .chart-thumbs img {
     padding: 2px 0;
+    width: 100%;
+}
+#chart-img img {
+    width: 100%;
 }

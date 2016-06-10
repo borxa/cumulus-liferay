@@ -7,7 +7,6 @@
     <name>Cumulus Portlets</name>
     <version>1.0</version>
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>com.liferay.maven.plugins</groupId>
